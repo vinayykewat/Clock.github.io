@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Adiing Fevicon -->
+    <link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpSHUuH5VlWthDCoReK4DkQ6x8gORrrhK1Vg&usqp=CAU">
+   
+  <!-- this is Title of Page  -->
+    <title>Alaram Clock</title>
+
+    <!-- here i link css with html  -->
+    <link rel="stylesheet" href="/css/a.css">
+
+</head>
+
+<body>
+     
+  <!-- Heading of Alarm  -->
+ <div id="title">
+     <h1>
+         Alaram Clock
+     </h1>
+ </div>
+
+<!-- Here i Decalre about Time of Alaram -->
+<div id="t">
+ <div class="table">
+  <div class="cell">
+    <h1 id="clock" class="clock"></h1>
+    
+    <select id="hours"></select>
+    <select id="minutes"></select>
+    <select id="seconds"></select>
+
+    <!-- This section if u click on am pm u get option  -->
+    <select id="ampm">
+      <option value="AM">AM</option>
+      <option value="PM">PM</option>
+    </select>
+    
+
+    <!-- This section I declare about snooz button and set alaram nad delete alaram buttton -->
+    <p>
+      <button id="snooze" class="hide">Snooze</button>
+      <button id="startstop">Set Alarm</button>
+    </p>
+  </div>
+
+
+  <!-- This all code is only for clock -->
+<div id="c">
+    <div class="box-canvas">
+      <div class="handle"></div>
+      <div class="bell-left bell"></div>
+      <div class="bell-right bell"></div>
+      <div class="clock-face">
+        <div class="twelve tick"></div>
+        <div class="six tick"></div>
+        <div class="hour-hand hand"></div>
+        <div class="minute-hand hand"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+ </body>
+    <!-- connect java script -->
+<script src="/js/a.js"></script>
+
+</html>

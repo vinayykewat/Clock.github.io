@@ -1,0 +1,312 @@
+@keyframes example {
+  0%   {background-color: rgb(0, 207, 190);}
+  25%  {background-color: cyan;}
+  50%  {background-color: rgb(49, 238, 228);}
+  100% {background-color: cyan;}
+  
+}
+
+
+
+
+
+#title{
+ 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  animation-name: example;
+  animation-duration: 4s;
+  text-align: center;
+  color: #000000;
+  border: 10px solid transparent;
+  padding: 15px;
+  border-image: url(border.png) 30 stretch;
+  text-shadow: 2px 2px 4px #000000;
+
+}
+
+
+
+:root {
+    --background-color: cyan;
+    --clock-body-color: #f50707;
+    --bell-gray: yellow;
+    --handle-gray: #000000;
+  }
+  
+  body{
+    background: var(--background-color);
+  }
+  
+  .box-canvas{
+    position: relative;
+    margin: auto;
+    display: block;
+    margin-top: 8%;
+    margin-bottom: 8%;
+    width: 600px;
+    height:600px;
+    background: var(--background-color);
+  }
+  
+  /* The metal handle behind the bells */
+  .handle {
+    position: absolute;
+    left: 150px;
+    top: 15px;
+    width: 270px;
+    height: 100px;
+    border: 15px solid var(--handle-gray);
+    border-bottom-color: var(--background-color);
+    border-radius: 50% 50% 40% 40%;
+  }
+  
+  /* Shared bell styles - main bell prong */
+  .bell {
+    position: absolute;
+    top: 78px;
+    background: var(--bell-gray);
+    width: 10px;
+    height: 90px;
+  }
+  
+  .bell-left {
+    transform: rotate(-30deg);
+    left: 180px;
+  }
+  
+  .bell-right {
+    transform: rotate(30deg);
+    right: 180px;
+  }
+  
+  /* Shared bell styles - main semi-circle bell */
+  .bell::after {
+    content: '';
+    position: absolute;
+    top: -75px;
+    width: 170px;
+    height: 150px;
+    clip-path: circle(40% at 50% 100%);
+    background: var(--bell-gray);
+  }
+  
+  .bell-left::after {
+    transform: rotate(-5deg);
+    left: -85px;
+  }
+  
+  .bell-right::after {
+    transform: rotate(5deg);
+    right: -85px;
+  }
+  
+  /* Main clock face including red border */
+  .clock-face {
+    position: absolute;
+    background: #F4FCFB;
+    top: 125px;
+    left: 150px;
+    width: 275px;
+    height: 275px;
+    border: 15px solid var(--clock-body-color);
+    border-radius: 50%;
+  }
+  
+  /* Left clock leg */
+  .clock-face::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 15px;
+    height: 70px;
+    background: var(--clock-body-color);
+    transform: rotate(20deg);
+    border-radius: 20%;
+  }
+  
+  /* Right clock leg */
+  .clock-face::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    width: 15px;
+    height: 70px;
+    background: var(--clock-body-color);
+    transform: rotate(-20deg);
+    border-radius: 20%;
+  }
+  
+  /* Shared vertical tick styles */
+  .tick {
+    position: absolute;
+    left: 135px;
+    background: var(--handle-gray);
+    width: 5px;
+    height: 25px;
+  }
+  
+  /* Shared horizontal tick styles */
+  .tick::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 5px;
+    background: var(--handle-gray);
+  }
+  
+  /* Twelve o'clock tick */
+  .twelve {
+    top: 10px;
+    
+  }
+  
+  /* Three o'clock tick */
+  .twelve::after {
+    top: 125px;
+    left: 105px;
+  }
+  
+  /* Six o'clock tick */
+  .six {
+    bottom: 10px;
+  }
+  
+  /* Nine o'clock tick */
+  .six::after {
+    bottom: 125px;
+    right: 105px;
+  }
+  
+  /* Shared styles for both hands */
+  .hand {
+    position: absolute;
+    width: 10px;
+    background: var(--handle-gray);
+  }
+  
+  .hour-hand {
+    left: 117px;
+    top: 135px;
+    height: 60px;
+    transform: rotate(30deg);
+  }
+  
+  /* Shared hand point section styles */
+  .hand::after {
+    content: '';
+    position: absolute;
+    left: -5px;
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
+  
+  /* Point at end of hand - shared */
+  .hour-hand::after {
+    bottom: -10px;
+    border-top: 10px solid var(--handle-gray);
+  }
+  
+  /* Minute hand */
+  .minute-hand {
+    background: var(--handle-gray);
+    left: 132px;
+    top: 55px;
+    height: 87px;
+    animation: handMove 60s infinite linear;
+  }
+  
+  /* Minute hand point */
+  .minute-hand::after {
+    border-bottom: 10px solid var(--handle-gray);
+    top: -10px;
+  }
+  
+  /* Circular join between both hands */
+  .hour-hand::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -10px;
+    background: var(--handle-gray);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  @keyframes handMove {
+    from {
+      transform: rotate(0);
+      transform-origin: bottom center;
+    }
+    to {
+      transform: rotate(360deg);
+      transform-origin: bottom center;
+    }
+  }
+
+
+
+  html, body {
+    height: 100%;
+  }
+  
+  /* background */
+  body {
+    background: cyan;
+    text-shadow: 2px 2px 4px #000000;
+    text-align: center;
+  }
+  
+  /* header */
+  h1 {
+    animation-duration: 3s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4em;
+    color: #fff;
+  }
+  
+  /* buttons */
+  button {
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 10px 30px;
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: 0;
+    color: #fff;
+    transition: all ease 300ms;
+  }
+  button:hover {
+    color:rgb(230, 255, 88);
+    background: #fff;
+    background-color: #f50707;
+  }
+  
+  /* center content vertically and horizontally */
+  .table {
+    display: table;
+    width: 100%;
+    height: 100%;
+  }
+  .cell {
+    display: table-cell;
+    vertical-align: middle;
+    cursor: default;
+  }
+  
+  /* variable misc classes */
+  .hide {
+    display: none;
+  }
